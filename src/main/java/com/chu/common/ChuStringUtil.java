@@ -33,7 +33,7 @@ public class ChuStringUtil {
                 break;
             }
         }
-        if (ret.length() == 0){/*如果*/
+        if (ret.length() == 0){
             return "0";
         }else {
             return  ret;
