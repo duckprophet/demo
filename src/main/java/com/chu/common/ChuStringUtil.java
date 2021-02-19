@@ -1,4 +1,4 @@
-package com.example.demo.util.stringUtil;
+package com.chu.common;
 
 /**
  * ClassName:ChuStringUtil
