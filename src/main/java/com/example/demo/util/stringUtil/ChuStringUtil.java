@@ -19,10 +19,19 @@ public class ChuStringUtil {
         String ret = "";
         for (int i = 0; i < tmp.length(); i++) {
             if (tmp.charAt(i) == 46){
-
+                ret += "0.";
+            }
+            if (30 <= tmp.charAt(i) && tmp.charAt(i) <= 39){
+                ret += tmp.charAt(i);
+            }else {
+                break;
             }
         }
-        return  ret;
+        if (ret.length() == 0){
+            return "0";
+        }else {
+            return  ret;
+        }
     }
 
 
