@@ -13,6 +13,7 @@ class DemoApplicationTests {
         System.out.println(num);
         BigDecimal b  = new BigDecimal(num);
         System.out.println(b);
+        System.out.println(BigDecimal.valueOf(0.00));
     }
 
 
