@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 class DemoApplicationTests {
     public static void main(String[] args) {
         System.out.println("hello,git");
-        String num = ChuStringUtil.getFirstFloFromStr(" .100.2.3 ada");
+        String num = ChuStringUtil.getFirstFloFromStr(".100.21");
         System.out.println(num);
         BigDecimal b  = new BigDecimal(num);
         System.out.println(b);

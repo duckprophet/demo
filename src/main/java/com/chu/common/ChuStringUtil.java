@@ -16,11 +16,11 @@ public class ChuStringUtil {
      */
     public static String getFirstFloFromStr(String str){
         String tmp = str.trim();
-                String ret = "";
-                for (int i = 0; i < tmp.length(); i++) {
-                    if (tmp.charAt(i) == 46 && i == 0){
-                        ret += "0.";
-                        continue;
+        String ret = "";
+        for (int i = 0; i < tmp.length(); i++) {
+            if (tmp.charAt(i) == 46 && i == 0){
+                ret += "0.";
+                continue;
             }
 
             if (48 <= tmp.charAt(i) && tmp.charAt(i) <= 57 || '.' == tmp.charAt(i)){
