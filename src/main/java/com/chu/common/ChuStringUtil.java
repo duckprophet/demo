@@ -1,5 +1,8 @@
 package com.chu.common;
 
+import org.springframework.boot.convert.Delimiter;
+import org.springframework.util.StringUtils;
+
 /**
  * ClassName:ChuStringUtil
  * Description:字符串相关工具方法
@@ -16,30 +19,60 @@ public class ChuStringUtil {
      */
     public static String getFirstFloFromStr(String str){
         String tmp = str.trim();
-        String ret = "";
+        StringBuilder ret = new StringBuilder();
         for (int i = 0; i < tmp.length(); i++) {
             if (tmp.charAt(i) == 46 && i == 0){
-                ret += "0.";
+                ret.append("0.") ;
                 continue;
             }
 
             if (48 <= tmp.charAt(i) && tmp.charAt(i) <= 57 || '.' == tmp.charAt(i)){
-                if (ret.indexOf('.') >= 0 && '.' == tmp.charAt(i)){/*如果当前浮点序列已经包含了"."，那么截取到第二个小数点前为止*/
-                    break;
+                if (ret.toString().indexOf('.') >= 0 && '.' == tmp.charAt(i)){/*如果当前浮点序列已经包含了"."，那么截取到第二个小数点前为止*/
+                    if (ret.length() == 0){
+                        return "0";
+                    }else {
+                        return  ret.toString();
+                    }
                 }else {
-                    ret += tmp.charAt(i);
+                    ret.append(tmp.charAt(i));
                 }
             }else {
-                break;
+                if (ret.length() == 0){
+                    return "0";
+                }else {
+                    return  ret.toString();
+                }
             }
         }
-        if (ret.length() == 0){
-            return "0";
+
+        return "0";
+    }
+
+    public static String getSubStringFromCsvLine(int n,char delimiter,String csvline){
+
+        if ("".equals(csvline) || null == csvline){
+            return null;
+        }
+        int pos = 0;
+        int i = 0;
+        if (n > 0){
+            for (; i < csvline.length(); i++) {
+                if (csvline.charAt(i) == delimiter){
+                    pos++;
+                }
+                if (pos >= n){
+                    i++;
+                    break;
+                }
+            }
+        }
+
+        String subStr = csvline.substring(i);
+        if (subStr.indexOf(delimiter) >= 0){
+            return subStr.substring(0, subStr.indexOf(delimiter));
         }else {
-            return  ret;
+            return subStr;
         }
     }
 
-
-    
 }
