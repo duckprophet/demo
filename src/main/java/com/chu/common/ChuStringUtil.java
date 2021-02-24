@@ -48,6 +48,12 @@ public class ChuStringUtil {
         return "0";
     }
 
+    /**
+     * @author : chuliyi
+     * @version : v1.0
+     * @description 根据分隔符取被分割的字段，从0开始
+     * @date : 9:12 2021/2/24
+     */
     public static String getSubStringFromCsvLine(int n,char delimiter,String csvline){
 
         if ("".equals(csvline) || null == csvline){
