@@ -44,8 +44,12 @@ public class ChuStringUtil {
                 }
             }
         }
+        if (ret.length() == 0){
+            return "0";
+        }else {
+            return  ret.toString();
+        }
 
-        return "0";
     }
 
     /**
